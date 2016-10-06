@@ -10,7 +10,7 @@ public class Berry {
     private int id;
 
 
-    public Berry(String name, String latname, String c1, String c2, String c3, String
+    public Berry(int id,String name, String latname, String c1, String c2, String c3, String
             features,String poisonous, String poisonous_extra){
         this.name = name;
         this.latname = latname;
