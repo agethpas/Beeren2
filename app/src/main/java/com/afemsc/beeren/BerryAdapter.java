@@ -48,7 +48,7 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
             // set views to viewholder to not go back and use find by id every time by new row
             viewHolder.name = (TextView) convertView.findViewById(R.id.txt);
             viewHolder.lat_name = (TextView) convertView.findViewById(R.id.lat_name);
-         // viewHolder.poison = (TextView) convertView.findViewById(R.id.listItemDate);
+          viewHolder.poison = (TextView) convertView.findViewById(R.id.poisonous);
 
 
             // Use set tag to remember our viewholder which is holding reference
@@ -62,6 +62,7 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
         // Populate the data into template view using the data object
         viewHolder.name.setText(berry.getName());
         viewHolder.lat_name.setText(berry.getLatname());
+        viewHolder.poison.setText(berry.getPoisonous());
 
 
         //return the data to display
