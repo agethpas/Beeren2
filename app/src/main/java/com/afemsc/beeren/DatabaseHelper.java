@@ -6,6 +6,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.BitmapFactory;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -49,22 +50,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(dbExist){
             //do nothing - database already exist
         }else{
-
             //By calling this method and empty database will be created into the default system path
             //of your application so we are gonna be able to overwrite that database with our database.
             this.getReadableDatabase();
-
             try {
-
                 copyDataBase();
-
             } catch (IOException e) {
-
                 throw new Error("Error copying database");
-
             }
         }
-
     }
 
     /**
@@ -80,15 +74,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
         }catch(SQLiteException e){
-
             //database does't exist yet.
-
         }
 
         if(checkDB != null){
-
             checkDB.close();
-
         }
 
         return checkDB != null ? true : false;
@@ -134,22 +124,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public synchronized void close() {
-
         if(myDataBase != null)
             myDataBase.close();
-
         super.close();
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     // Add your public helper methods to access and get content from the database.
@@ -157,30 +143,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // to you to create adapters for your views.
 
 
-
-
     public ArrayList<Berry> getAllBerries(){
         ArrayList<Berry> berries = new ArrayList<Berry>();
 
-        //grab all of the information in our database for the notes in it
-        Cursor cursor = myDataBase.query(TABLE_NAME,allColumns,null,null,null,null,"name DESC");
-        for(cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()){
-            Berry berry = cursorToBerry(cursor);
-            berries.add(berry);
-        }
 
-        //close our cursor required
-        cursor.close();
+
+
+
+            //grab all of the information in our database for the notes in it
+            Cursor cursor = myDataBase.query(TABLE_NAME, allColumns, null , null, null, null, "name DESC");
+
+            for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()) {
+                Berry berry = cursorToBerry(cursor);
+                berries.add(berry);
+            }
+
+            //close our cursor required
+            cursor.close();
+
+
+
+
 
         //return arrayList now filled with database notes or notes in our database
         return berries;
     }
 
+
+
     //give a cursor returns a berry object
     private Berry cursorToBerry(Cursor cursor){
         Berry newBerry = new Berry ( cursor.getInt(0),cursor.getString(1),
                 cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),
-                cursor.getString(7),cursor.getString(8) );
+                cursor.getString(7),cursor.getString(8),null);
+
+
+
         return newBerry;
     }
 
