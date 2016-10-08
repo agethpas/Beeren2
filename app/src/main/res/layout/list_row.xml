@@ -15,8 +15,7 @@
         android:maxLines="2"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="100dp"
-
-         />
+              />
 
     <TextView
         android:id="@+id/lat_name"

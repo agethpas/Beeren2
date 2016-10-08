@@ -1,22 +1,36 @@
 package com.afemsc.beeren;
 
+import android.content.Intent;
 import android.database.SQLException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 import static com.afemsc.beeren.R.id.ListBerry;
+
+
+
 
 
 public class BerryDirectory extends AppCompatActivity {
 
     private ArrayList<Berry> berries;
     private BerryAdapter berryAdapter;
+
+    public static final String BERRY_ID_EXTRA = "com.afemsc.beeren.Identifier";
+    public static final String BERRY_NAME_EXTRA = "com.afemsc.beeren.Name";
+    public static final String BERRY_LATNAME_EXTRA = "com.afemsc.beeren.Latname";
+    public static final String BERRY_FEATURES_EXTRA = "com.afemsc.beeren.Features";
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +58,30 @@ public class BerryDirectory extends AppCompatActivity {
        berryAdapter = new BerryAdapter(this, berries);
        listv.setAdapter(berryAdapter);
 
+
+
+        listv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Intent intent = new Intent(BerryDirectory.this, BerryDetailActivity.class);
+                Berry berry = (Berry) parent.getItemAtPosition(position);
+                intent.putExtra(BerryDirectory.BERRY_NAME_EXTRA, berry.getName());
+                intent.putExtra(BerryDirectory.BERRY_LATNAME_EXTRA, berry.getLatname());
+                intent.putExtra(BerryDirectory.BERRY_FEATURES_EXTRA, berry.getFeatures());
+                intent.putExtra(BerryDirectory.BERRY_ID_EXTRA, berry.getId());
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
 
-    /*
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id){
-        super.onListItemClick(l,v, position, id);
-        launchNoteDetailActivity(MainActivity.FragmentToLaunch.EDIT,position);
-    }
-*/
+
+
+
 
 }
 
