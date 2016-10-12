@@ -18,8 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BerryDirectory" />
-        <activity android:name=".BerryDetailActivity"></activity>
+        <activity android:name=".BerryDirectory"
+            android:parentActivityName=".MainActivity"/>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.afemsc.beeren.MainActivity"/>
+
+        <activity android:name=".BerryDetailActivity">
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.afemsc.beeren.BerryDirectory"/>
+        </activity>
     </application>
 
 </manifest>
