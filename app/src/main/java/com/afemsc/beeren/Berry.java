@@ -79,7 +79,10 @@ public class Berry {
 
 
 
-
+    @Override
+    public String toString() {
+        return this.name;
+    }
 
 
 

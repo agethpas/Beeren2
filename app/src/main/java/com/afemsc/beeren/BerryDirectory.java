@@ -109,7 +109,7 @@ public class BerryDirectory extends AppCompatActivity  implements SearchView.OnQ
     @Override
     public boolean onQueryTextChange(String newText) {
         // User changed the text
-
+        berryAdapter.getFilter().filter(newText);
         return false;
     }
 

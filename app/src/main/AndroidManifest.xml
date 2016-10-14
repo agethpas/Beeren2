@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".BerryDirectory"
+            android:label="@string/app_name_search"
             android:parentActivityName=".MainActivity"/>
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
