@@ -29,16 +29,14 @@
         android:layout_alignEnd="@+id/txt" />
 
     <TextView
-        android:text="TextView"
-        android:layout_width="100dp"
+        android:text="ungiftig"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:id="@+id/poisonous"
         android:layout_below="@+id/lat_name"
         android:layout_alignStart="@+id/lat_name"
-        android:layout_alignEnd="@+id/lat_name"
-        android:layout_alignBottom="@+id/pic" />
-
-
+        android:layout_marginTop="3dp"
+         />
 
 
     <ImageView
@@ -48,5 +46,49 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="5dp" />
+
+
+    <TextView
+        android:id="@+id/colourTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:text="Farbe:"
+        android:layout_toEndOf="@+id/poisonous"
+        android:layout_alignBottom="@+id/poisonous"
+        android:layout_alignTop="@+id/poisonous" />
+
+
+    <ImageView
+        android:id="@+id/circle_c1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circle_c1"
+        android:layout_alignTop="@+id/poisonous"
+        android:layout_toEndOf="@+id/colourTxt"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"/>
+
+
+    <ImageView
+        android:id="@+id/circle_c2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circle_c2"
+        android:layout_alignTop="@+id/poisonous"
+        android:layout_toEndOf="@+id/circle_c1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"/>
+
+
+    <ImageView
+        android:id="@+id/circle_c3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circle_c3"
+        android:layout_alignTop="@+id/poisonous"
+        android:layout_toEndOf="@+id/circle_c2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"/>
+
 
 </RelativeLayout>
