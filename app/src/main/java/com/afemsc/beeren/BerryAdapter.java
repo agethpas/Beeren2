@@ -94,6 +94,9 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
         }
 
 
+        //Sets the colours in the list row
+
+        //instantiate values for loop last if set's transparent circle if no colour is in db
         viewHolder.v = viewHolder.c1;
         String c = berry.getC1();
 
