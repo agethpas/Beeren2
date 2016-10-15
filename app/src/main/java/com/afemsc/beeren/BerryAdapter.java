@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +36,11 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
         TextView lat_name;
         TextView poison;
         ImageView pic;
+        ImageView c1;
+        ImageView c2;
+        ImageView c3;
+        ImageView v;
+
 
     }
 
@@ -63,7 +70,9 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
             viewHolder.lat_name = (TextView) convertView.findViewById(R.id.lat_name);
             viewHolder.poison = (TextView) convertView.findViewById(R.id.poisonous);
             viewHolder.pic = (ImageView) convertView.findViewById(R.id.pic);
-
+            viewHolder.c1 = (ImageView) convertView.findViewById(R.id.circle_c1);
+            viewHolder.c2 = (ImageView) convertView.findViewById(R.id.circle_c2);
+            viewHolder.c3 = (ImageView) convertView.findViewById(R.id.circle_c3);
 
             // Use set tag to remember our viewholder which is holding reference
             convertView.setTag(viewHolder);
@@ -76,7 +85,50 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
         // Populate the data into template view using the data object
         viewHolder.name.setText(berry.getName());
         viewHolder.lat_name.setText(berry.getLatname());
-        viewHolder.poison.setText(berry.getPoisonous());
+
+        //Sets the poisonous value
+        if(berry.getPoisonous().equals("y")){
+            viewHolder.poison.setText(R.string.poisonous_y);
+        }else{
+            viewHolder.poison.setText(R.string.poisonous_n);
+        }
+
+
+        viewHolder.v = viewHolder.c1;
+        String c = berry.getC1();
+
+        for (int i = 0; i < 3; i++) {
+
+            if (c.equals("r")) {
+                viewHolder.v.setImageResource(R.drawable.circle_c1);
+            } else if (c.equals("b")) {
+                viewHolder.v.setImageResource(R.drawable.circle_c2);
+            } else if (c.equals("bl")) {
+                viewHolder.v.setImageResource(R.drawable.circle_c3);
+            } else if (c.equals("y")) {
+                viewHolder.v.setImageResource(R.drawable.circle_c4);
+            } else if (c.equals("br")) {
+                viewHolder.v.setImageResource(R.drawable.circle_c5);
+            } else if (c.equals("g")) {
+                viewHolder.v.setImageResource(R.drawable.circle_c6);
+            } else if (c.equals("w")) {
+                viewHolder.v.setImageResource(R.drawable.circle_c7);
+            } else {
+                viewHolder.v.setImageResource(R.drawable.circle_c8);
+            }
+
+            //sets viewholder for second loop
+            c = berry.getC2();
+            viewHolder.v = viewHolder.c2;
+
+            //sets viewHolder for third loop
+            if (i > 0) {
+                c = berry.getC3();
+                viewHolder.v = viewHolder.c3;
+            }
+        }
+
+
         //get picture
 
 
