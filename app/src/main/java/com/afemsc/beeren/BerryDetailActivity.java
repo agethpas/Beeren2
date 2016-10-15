@@ -1,9 +1,13 @@
 package com.afemsc.beeren;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.media.Image;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +48,23 @@ public class BerryDetailActivity extends AppCompatActivity {
         //pic.setImageResource(R.drawable.berberitze_s);
 
 
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        setTitle(intent.getExtras().getString(BerryDirectory.BERRY_NAME_EXTRA,""));
+        actionBar.setSubtitle(intent.getExtras().getString(BerryDirectory.BERRY_LATNAME_EXTRA,""));
+
+
+
     }
+
+
+
+
+
+
+
+
+
 
 
 
