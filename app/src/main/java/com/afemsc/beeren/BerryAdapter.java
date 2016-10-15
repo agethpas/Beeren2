@@ -93,7 +93,6 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
             viewHolder.poison.setText(R.string.poisonous_n);
         }
 
-
         //Sets the colours in the list row
 
         //instantiate values for loop last if set's transparent circle if no colour is in db
@@ -130,6 +129,12 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
                 viewHolder.v = viewHolder.c3;
             }
         }
+
+
+            //viewHolder.pic.setImageResource(Integer.parseInt(String.valueOf(berry.getPic_s())));
+
+
+
 
 
         //get picture

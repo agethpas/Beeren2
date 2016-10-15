@@ -32,6 +32,8 @@ public class BerryDirectory extends AppCompatActivity  implements SearchView.OnQ
     public static final String BERRY_NAME_EXTRA = "com.afemsc.beeren.Name";
     public static final String BERRY_LATNAME_EXTRA = "com.afemsc.beeren.Latname";
     public static final String BERRY_FEATURES_EXTRA = "com.afemsc.beeren.Features";
+    public static final String BERRY_PIC ="com.afemsc.beeren.Pic";
+    public static final String BERRY_POISONOUS ="com.afemsc.beeren.Poisonous";
 
 
 
@@ -74,6 +76,8 @@ public class BerryDirectory extends AppCompatActivity  implements SearchView.OnQ
                 intent.putExtra(BerryDirectory.BERRY_LATNAME_EXTRA, berry.getLatname());
                 intent.putExtra(BerryDirectory.BERRY_FEATURES_EXTRA, berry.getFeatures());
                 intent.putExtra(BerryDirectory.BERRY_ID_EXTRA, berry.getId());
+                intent.putExtra(BerryDirectory.BERRY_PIC,berry.getPic_s());
+                intent.putExtra(BerryDirectory.BERRY_POISONOUS,berry.getPoisonous());
                 startActivity(intent);
             }
         });

@@ -12,11 +12,11 @@ public class Berry {
 
     private String name, latname, c1,c2,c3, features,poisonous, poisonous_extra;
     private int id;
-    private String pic;
+    private int pic, pic_s ;
 
 
     public Berry(int id,String name, String latname, String c1, String c2, String c3, String
-            features,String poisonous, String poisonous_extra, String pic){
+            features,String poisonous, String poisonous_extra, int pic, int pic_s){
         this.name = name;
         this.latname = latname;
         this.c1 = c1;
@@ -26,7 +26,7 @@ public class Berry {
         this.poisonous = poisonous;
         this.poisonous_extra = poisonous_extra;
         this.pic = pic;
-
+        this.pic_s = pic_s;
     }
 
 
@@ -66,18 +66,13 @@ public class Berry {
         return id;
     }
 
-    public String getPic() {
+    public int getPic() {
         return pic;
     }
 
-
-
-
-
-
-
-
-
+    public int getPic_s() {
+        return pic_s;
+    }
 
     @Override
     public String toString() {

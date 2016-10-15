@@ -21,12 +21,12 @@ import java.util.ArrayList;
 public class DatabaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
     private static String DB_PATH = "/data/data/com.afemsc.beeren/databases/";
-    private static String DB_NAME = "berryDB.db";
+    private static String DB_NAME = "berryDB_p.db";
     private SQLiteDatabase myDataBase;
     private final Context myContext;
     public static final String TABLE_NAME = "berries";
 
-    private String[] allColumns = {"_id","name","lat_name","c1","c2","c3","features","poisonous","poisonous_extra"};
+    private String[] allColumns = {"_id","name","lat_name","c1","c2","c3","features","poisonous","poisonous_extra,pic,pic_s"};
 
 
     /**
@@ -147,9 +147,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Berry> berries = new ArrayList<Berry>();
 
 
-
-
-
             //grab all of the information in our database for the notes in it
             Cursor cursor = myDataBase.query(TABLE_NAME, allColumns, null , null, null, null, "name DESC");
 
@@ -175,8 +172,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private Berry cursorToBerry(Cursor cursor){
         Berry newBerry = new Berry ( cursor.getInt(0),cursor.getString(1),
                 cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),
-                cursor.getString(7),cursor.getString(8),null);
-
+                cursor.getString(7),cursor.getString(8),cursor.getInt(9), cursor.getInt(10));
 
 
         return newBerry;
