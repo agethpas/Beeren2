@@ -10,13 +10,13 @@ import java.sql.Blob;
 
 public class Berry {
 
-    private String name, latname, c1,c2,c3, features,poisonous, poisonous_extra;
+    private String name, latname, c1,c2,c3, features,poisonous, poisonous_extra, pic, pic_s;
     private int id;
-    private int pic, pic_s ;
+
 
 
     public Berry(int id,String name, String latname, String c1, String c2, String c3, String
-            features,String poisonous, String poisonous_extra, int pic, int pic_s){
+            features,String poisonous, String poisonous_extra, String pic, String pic_s){
         this.name = name;
         this.latname = latname;
         this.c1 = c1;
@@ -66,11 +66,11 @@ public class Berry {
         return id;
     }
 
-    public int getPic() {
+    public String getPic() {
         return pic;
     }
 
-    public int getPic_s() {
+    public String getPic_s() {
         return pic_s;
     }
 

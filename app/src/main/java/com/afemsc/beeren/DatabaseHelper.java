@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class DatabaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
     private static String DB_PATH = "/data/data/com.afemsc.beeren/databases/";
-    private static String DB_NAME = "berryDB_p.db";
+    private static String DB_NAME = "berryDB_x.db";
     private SQLiteDatabase myDataBase;
     private final Context myContext;
     public static final String TABLE_NAME = "berries";
@@ -172,7 +172,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private Berry cursorToBerry(Cursor cursor){
         Berry newBerry = new Berry ( cursor.getInt(0),cursor.getString(1),
                 cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),
-                cursor.getString(7),cursor.getString(8),cursor.getInt(9), cursor.getInt(10));
+                cursor.getString(7),cursor.getString(8),cursor.getString(9), cursor.getString(10));
 
 
         return newBerry;

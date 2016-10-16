@@ -3,6 +3,7 @@ package com.afemsc.beeren;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -29,6 +30,8 @@ import static android.app.Activity.RESULT_OK;
  */
 
 public class BerryAdapter extends ArrayAdapter<Berry>{
+
+
 
 
     public static class ViewHolder{
@@ -135,23 +138,14 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
 
 
 
-
-
-        //get picture
-
-
-
-           // Uri imageUri = Uri.parse(berry.getPic());
-
-
-           // viewHolder.pic.setImageResource(Integer.parseInt((berry.getPic())));
-
-
-
 /*
-        byte[] picture = berry.getPic();
-        viewHolder.pic.setImageBitmap(BitmapFactory.decodeByteArray(picture, 0, picture.length));
+
+        int resId = getResources().getIdentifier( ,"drawable", getPackageName());
+        viewHolder.pic.setImageResource(resId);
 */
+
+
+
 
         //return the data to display
         return convertView;
