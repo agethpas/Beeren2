@@ -8,5 +8,9 @@
     <string name="poisonous_y">giftig</string>
     <string name="poisonous_n">ungiftig</string>
 
+    <string name="title_activity_picture_big">PictureBigActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 
 </resources>

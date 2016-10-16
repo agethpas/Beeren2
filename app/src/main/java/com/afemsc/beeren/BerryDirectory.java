@@ -94,9 +94,6 @@ public class BerryDirectory extends AppCompatActivity  implements SearchView.OnQ
 
 
 
-
-
-
     }
 
 

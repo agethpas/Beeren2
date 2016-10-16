@@ -158,10 +158,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //close our cursor required
             cursor.close();
 
-
-
-
-
         //return arrayList now filled with database notes or notes in our database
         return berries;
     }

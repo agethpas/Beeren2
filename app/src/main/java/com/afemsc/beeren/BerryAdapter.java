@@ -48,14 +48,17 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
     }
 
     public BerryAdapter(Context context, ArrayList<Berry> berryArrayList){
+
         super(context, 0, berryArrayList);
     }
 
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
+
         // Get the date Item for this position
         Berry berry = getItem(position);
+
 
         // create new Viewholder
         ViewHolder viewHolder;
@@ -139,13 +142,12 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
 
 
 /*
-
-        int resId = getResources().getIdentifier( ,"drawable", getPackageName());
+        int resId = getResources().getIdentifier(berry.getPic_s() ,"drawable", getPackageName());
         viewHolder.pic.setImageResource(resId);
 */
 
-
-
+        int resId = getContext().getResources().getIdentifier(berry.getPic_s() ,"drawable", "com.afemsc.beeren");
+        viewHolder.pic.setImageResource(resId);
 
         //return the data to display
         return convertView;

@@ -1,8 +1,6 @@
 package com.afemsc.beeren;
 
-import android.graphics.Bitmap;
 
-import java.sql.Blob;
 
 /**
  * Created by Pascal on 04.10.2016.

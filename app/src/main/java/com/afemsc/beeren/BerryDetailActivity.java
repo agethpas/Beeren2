@@ -78,9 +78,7 @@ public class BerryDetailActivity extends AppCompatActivity {
             }
         }
 
-
-
-
+        //sets the pictures
         int resId = getResources().getIdentifier(intent.getExtras().getString(BerryDirectory.BERRY_PIC_S_EXTRA,""), "drawable", getPackageName());
         pic.setImageResource(resId);
 

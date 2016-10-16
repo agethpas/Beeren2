@@ -18,19 +18,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BerryDirectory"
+        <activity
+            android:name=".BerryDirectory"
             android:label="@string/app_name_search"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
+
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.afemsc.beeren.MainActivity"/>
+            android:value="com.afemsc.beeren.MainActivity" />
 
         <activity android:name=".BerryDetailActivity">
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.afemsc.beeren.BerryDirectory"/>
+                android:value="com.afemsc.beeren.BerryDirectory" />
         </activity>
+        <activity
+            android:name=".PictureBigActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_picture_big"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>
