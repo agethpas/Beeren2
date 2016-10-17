@@ -25,12 +25,15 @@ public class BerryFullscreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_berry_fullscreen);
 
 
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        String fullscName = BerryDetailActivity.getFullscName();
+        setTitle(fullscName);
+
+
         //Image View
         pic_l =  (SubsamplingScaleImageView)findViewById(R.id.fullscreen_berry);
-
-
-        pic_l.setImage(ImageSource.resource(R.drawable.heidelbeere));
-
+        int resId = getResources().getIdentifier(BerryDetailActivity.getPicname(), "drawable", getPackageName());
+        pic_l.setImage(ImageSource.resource(resId));
 
 
     }

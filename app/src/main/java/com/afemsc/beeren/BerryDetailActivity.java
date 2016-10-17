@@ -10,7 +10,17 @@ import android.widget.TextView;
 
 public class BerryDetailActivity extends AppCompatActivity {
 
+    private static String FullscName = "heidelbeere";
 
+    private static String picname = "heidelbeere";
+
+    public static String getFullscName() {
+        return FullscName;
+    }
+
+    public static String getPicname() {
+        return picname;
+    }
 
 
 
@@ -43,6 +53,10 @@ public class BerryDetailActivity extends AppCompatActivity {
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         setTitle(intent.getExtras().getString(BerryDirectory.BERRY_NAME_EXTRA,""));
         actionBar.setSubtitle(intent.getExtras().getString(BerryDirectory.BERRY_LATNAME_EXTRA,""));
+
+        //sets name or path for Fullscreen activity
+        FullscName = (intent.getExtras().getString(BerryDirectory.BERRY_NAME_EXTRA,""));
+        picname = (intent.getExtras().getString(BerryDirectory.BERRY_PIC_EXTRA,""));
 
 
         //sets poisonous

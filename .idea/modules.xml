@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Beeren12.10.16.iml" filepath="$PROJECT_DIR$/Beeren12.10.16.iml" />
       <module fileurl="file://$PROJECT_DIR$/Beeren14.10.2016.iml" filepath="$PROJECT_DIR$/Beeren14.10.2016.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Beeren17.10.2016.iml" filepath="$PROJECT_DIR$/Beeren17.10.2016.iml" />
       <module fileurl="file://$PROJECT_DIR$/Beeren2.iml" filepath="$PROJECT_DIR$/Beeren2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
