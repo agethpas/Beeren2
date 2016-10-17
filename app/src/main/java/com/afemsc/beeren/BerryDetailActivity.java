@@ -3,10 +3,16 @@ package com.afemsc.beeren;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 public class BerryDetailActivity extends AppCompatActivity {
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +21,9 @@ public class BerryDetailActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_berry_detail);
+
+
+
 
 
         TextView features = (TextView) findViewById(R.id.features);
@@ -84,19 +93,22 @@ public class BerryDetailActivity extends AppCompatActivity {
 
 
 
+        //OnClickListener for pic
+        pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),BerryFullscreenActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+
+
+
 
 
     }
-
-
-
-
-
-
-
-
-
-
 
 
 

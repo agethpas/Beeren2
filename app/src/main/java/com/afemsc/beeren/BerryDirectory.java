@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 
@@ -34,6 +33,7 @@ public class BerryDirectory extends AppCompatActivity  implements SearchView.OnQ
     public static final String BERRY_LATNAME_EXTRA = "com.afemsc.beeren.Latname";
     public static final String BERRY_FEATURES_EXTRA = "com.afemsc.beeren.Features";
     public static final String BERRY_PIC_S_EXTRA ="com.afemsc.beeren.Pic_s";
+    public static final String BERRY_PIC_EXTRA ="com.afemsc.beeren.Pic";
     public static final String BERRY_POISONOUS_EXTRA ="com.afemsc.beeren.Poisonous";
     public static final String BERRY_C1_EXTRA ="com.afemsc.beeren.C1";
     public static final String BERRY_C2_EXTRA ="com.afemsc.beeren.C2";
@@ -84,6 +84,7 @@ public class BerryDirectory extends AppCompatActivity  implements SearchView.OnQ
                 intent.putExtra(BerryDirectory.BERRY_FEATURES_EXTRA, berry.getFeatures());
                 intent.putExtra(BerryDirectory.BERRY_ID_EXTRA, berry.getId());
                 intent.putExtra(BerryDirectory.BERRY_PIC_S_EXTRA,berry.getPic_s());
+                intent.putExtra(BerryDirectory.BERRY_PIC_EXTRA,berry.getPic());
                 intent.putExtra(BerryDirectory.BERRY_POISONOUS_EXTRA,berry.getPoisonous());
                 intent.putExtra(BerryDirectory.BERRY_C1_EXTRA,berry.getC1());
                 intent.putExtra(BerryDirectory.BERRY_C2_EXTRA,berry.getC2());

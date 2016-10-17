@@ -15,6 +15,7 @@ public class Berry {
 
     public Berry(int id,String name, String latname, String c1, String c2, String c3, String
             features,String poisonous, String poisonous_extra, String pic, String pic_s){
+        this.id = id;
         this.name = name;
         this.latname = latname;
         this.c1 = c1;
