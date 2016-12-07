@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Calendar;
 import petrov.kristiyan.colorpicker.ColorPicker;
@@ -19,18 +21,30 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
 
     Button buttonberryGuideDatepick;
     Button buttonberryGuideColourpick;
+    SeekBar seekbarberry;
+    TextView textberrysize;
 
+    //DatePicker
     int day, month, year , displaymonth;
     int dayFinal, monthFinal, yearFinal;
 
+    //Forms
     String[] formNames={"Round","Egg","Oval","Heart","Small Round"};
     int forms[] = {R.drawable.form_1_rund, R.drawable.form_2_elipse, R.drawable.form_3_elipse2, R.drawable.form_4_herz, R.drawable.form_5_runde};
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_berry_guide);
+
+
+        // Size seekbar and text
+        seekbarberry = (SeekBar) findViewById(R.id.seekBarBerrySize);
+        textberrysize = (TextView) findViewById(R.id.textBerrySize);
+
 
         //button finder
         buttonberryGuideDatepick = (Button) findViewById(R.id.button_guide_datepicker);
@@ -49,6 +63,31 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         day = c.get(Calendar.DAY_OF_MONTH);
         displaymonth = month  +1;
         buttonberryGuideDatepick.setText(day+"."+displaymonth+"."+year+ "(Heute)");
+
+
+
+        //initialize Berry size SeekBar
+        textberrysize.setText("Grösse: " + seekbarberry.getProgress() +" cm");
+        seekbarberry.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            double progress = 0;
+
+            //Seekbar
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
+                progress = (seekbarberry.getProgress()*0.01)*10;
+
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                String BerrySize = String.valueOf((double)Math.round(progress*10d)/10);
+                textberrysize.setText("Grösse: "+ BerrySize+" cm");
+            }
+        });
 
 
 
@@ -89,18 +128,22 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
 
     }
 
-    //Performing action onItemSelected and onNothing selected
+
+
+    //Spinner action onItemSelected
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position,long id) {
        // Toast.makeText(getApplicationContext(), formNames[position], Toast.LENGTH_LONG).show();
     }
 
+    //Spinner action onNothingSelected
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
     }
 
 
+    // Date Set user input
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
         yearFinal = i;
