@@ -14,6 +14,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button buttonberryDir;
+    Button buttonberryGuide;
 
 
     @Override
@@ -33,13 +34,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        buttonberryDir=(Button)findViewById(R.id.buttonberdir);
+        buttonberryDir=(Button)findViewById(R.id.button_search);
         buttonberryDir.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Intent i = new Intent(getApplicationContext(),BerryDirectory.class);
+                startActivity(i);
+            }
+        });
+
+        buttonberryGuide=(Button)findViewById(R.id.button_guide);
+        buttonberryGuide.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent i = new Intent(getApplicationContext(),BerryGuide.class);                // class auf guide ändern
                 startActivity(i);
             }
         });

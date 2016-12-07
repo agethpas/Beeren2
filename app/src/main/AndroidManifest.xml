@@ -22,6 +22,7 @@
             android:name=".BerryDirectory"
             android:label="@string/app_name_search"
             android:parentActivityName=".MainActivity" />
+
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.afemsc.beeren.MainActivity" />
@@ -36,8 +37,8 @@
             android:name=".BerryFullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_berry_fullscreen"
-            android:theme="@style/FullscreenTheme">
-        </activity>
+            android:theme="@style/FullscreenTheme"></activity>
+        <activity android:name=".BerryGuide"></activity>
     </application>
 
 </manifest>
