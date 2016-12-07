@@ -23,17 +23,27 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:text="Pick colour"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    <Button
+        android:text="Pick Colour"
         android:textSize="16sp"
-        android:id="@+id/text_color_picker"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="20dp"
+        android:id="@+id/button_guide_colourpicker"
         android:layout_below="@+id/button_guide_datepicker"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"        />
+        android:layout_alignEnd="@+id/button_guide_datepicker" />
 
+
+    <Spinner
+        android:id="@+id/simpleSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/button_guide_colourpicker"
+        android:layout_alignParentStart="true" />
 
     <!--
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

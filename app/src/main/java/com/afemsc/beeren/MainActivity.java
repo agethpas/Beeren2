@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+                //
                 Intent i = new Intent(getApplicationContext(),BerryDirectory.class);
                 startActivity(i);
             }
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+                //
                 Intent i = new Intent(getApplicationContext(),BerryGuide.class);                // class auf guide ändern
                 startActivity(i);
             }
