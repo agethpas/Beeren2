@@ -75,6 +75,8 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
             @Override
             public void onProgressChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
                 progress = (seekbarberry.getProgress()*0.01)*10;
+                String BerrySize = String.valueOf((double)Math.round(progress*10d)/10);
+                textberrysize.setText("Grösse: "+ BerrySize+" cm");
 
             }
             @Override
