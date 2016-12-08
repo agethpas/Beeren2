@@ -39,6 +39,8 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     //criteria
     static String  colourguide;
     static int season;
+    static double size;
+
 
 
 
@@ -51,6 +53,12 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         return season;
     }
 
+    public static double getSize() {
+        return size;
+    }
+
+
+
     //Setter
     public static void setColourguide(String colourguide) {
         BerryGuide.colourguide = colourguide;
@@ -59,6 +67,12 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     public static void setSeason(int season) {
         BerryGuide.season = season;
     }
+
+    public static void setSize(double size) {
+        BerryGuide.size = size;
+    }
+
+
 
     //DatePicker
     int day, month, year , displaymonth;
@@ -148,6 +162,10 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
                 progress = (seekbarberry.getProgress()*0.01)*10;
                 String BerrySize = String.valueOf((double)Math.round(progress*10d)/10);
                 textberrysize.setText("Grösse: "+ BerrySize+" cm");
+
+                //TODO this size
+                setSeason((Math.round(progress*10d)/10));
+
 
             }
             @Override
