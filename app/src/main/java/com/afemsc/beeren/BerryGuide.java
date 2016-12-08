@@ -1,26 +1,33 @@
 package com.afemsc.beeren;
 
 import android.app.DatePickerDialog;
+import android.database.SQLException;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import petrov.kristiyan.colorpicker.ColorPicker;
 
+import static com.afemsc.beeren.R.id.ListBerry;
+import static com.afemsc.beeren.R.id.ListBerryGuide;
 
-public class BerryGuide extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, AdapterView.OnItemSelectedListener {
+
+public class BerryGuide extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, AdapterView.OnItemSelectedListener, SearchView.OnQueryTextListener {
 
     Button buttonberryGuideDatepick;
     Button buttonberryGuideColourpick;
@@ -49,6 +56,28 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_berry_guide);
+
+        //Database
+        DatabaseHelper helper = new DatabaseHelper(this);
+        try {
+            helper.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database");
+        }
+        try {
+            helper.openDataBase();
+        }catch(SQLException sqle){
+            throw sqle;
+        }
+
+
+        berries = helper.getAllBerries();
+        helper.close();
+
+        ListView listv=(ListView)findViewById(ListBerryGuide);
+
+        berryAdapter = new BerryAdapter(this, berries);
+        listv.setAdapter(berryAdapter);
 
 
         // Size seekbar and text
@@ -150,17 +179,6 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
 
                     }
 
-
-
-
-
-
-
-
-
-
-
-
                     @Override
                     public void onCancel() {
 
@@ -201,4 +219,13 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
 }
