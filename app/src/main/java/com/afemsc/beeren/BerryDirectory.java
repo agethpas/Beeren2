@@ -50,6 +50,7 @@ public class BerryDirectory extends AppCompatActivity  implements SearchView.OnQ
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+
         DatabaseHelper helper = new DatabaseHelper(this);
         try {
             helper.createDataBase();

@@ -1,11 +1,11 @@
 package com.afemsc.beeren;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.database.SQLException;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,20 +23,31 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import petrov.kristiyan.colorpicker.ColorPicker;
 
-import static com.afemsc.beeren.R.id.ListBerry;
-import static com.afemsc.beeren.R.id.ListBerryGuide;
 
 
-public class BerryGuide extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, AdapterView.OnItemSelectedListener, SearchView.OnQueryTextListener {
+public class BerryGuide extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, AdapterView.OnItemSelectedListener {
 
     Button buttonberryGuideDatepick;
     Button buttonberryGuideColourpick;
+    Button buttonGuideResult;
     SeekBar seekbarberry;
     TextView textberrysize;
 
-    //Database storage
-    private ArrayList<Berry> berries;
-    private BerryAdapter berryAdapter;
+
+
+
+    //criteria
+    static String  colourguide;
+
+    //Getter
+    public static String getColourguide() {
+        return colourguide;
+    }
+
+    //Setter
+    public static void setColourguide(String colourguide) {
+        BerryGuide.colourguide = colourguide;
+    }
 
     //DatePicker
     int day, month, year , displaymonth;
@@ -71,13 +82,7 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         }
 
 
-        berries = helper.getAllBerries();
-        helper.close();
 
-        ListView listv=(ListView)findViewById(ListBerryGuide);
-
-        berryAdapter = new BerryAdapter(this, berries);
-        listv.setAdapter(berryAdapter);
 
 
         // Size seekbar and text
@@ -88,6 +93,19 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         //button finder
         buttonberryGuideDatepick = (Button) findViewById(R.id.button_guide_datepicker);
         buttonberryGuideColourpick  = (Button) findViewById(R.id.button_guide_colourpicker);
+        buttonGuideResult = (Button) findViewById(R.id.button_guide_result);
+
+        //Result
+
+        buttonGuideResult.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //
+                Intent i = new Intent(getApplicationContext(),BerryGuideResult.class);
+                startActivity(i);
+            }
+        });
 
         //colour round picker
         final ImageView imageviewpickedcolour = (ImageView) findViewById(R.id.circle_colour_pick);
@@ -136,6 +154,8 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
 
 
 
+
+
         //Date Picker
         buttonberryGuideDatepick.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -154,30 +174,46 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
             public void onClick(View view) {
                 final ColorPicker colorPicker = new ColorPicker(BerryGuide.this);
                 colorPicker.setColors(R.array.berrycolours);
-                colorPicker.setDefaultColorButton(Color.parseColor("#0000FF")).setColumns(5).setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
+                colorPicker.setColumns(5).setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
                     @Override
                     public void onChooseColor(int position, int color) {
                         Log.d("position",""+position);// When ok is pressed
 
                         if (position == 0){
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c1);
+                            setColourguide("r");
                         } else if (position == 1){
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c5);
                         }else if (position == 2){
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c4);
+                            setColourguide("y");
                         }else if (position == 3){
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
                         }else if (position == 4){
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
+                            setColourguide("b");
                         }else if (position == 5){
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c2);
                         }else if (position == 6){
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
                         }else if (position == 7) {
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
+                            setColourguide("bl");
                         }
 
+
                     }
+
+
+
+
+
+
+
+
+
+
+
 
                     @Override
                     public void onCancel() {
@@ -219,13 +255,6 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     }
 
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        return false;
-    }
+
 }

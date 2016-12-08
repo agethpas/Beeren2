@@ -26,6 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final Context myContext;
     public static final String TABLE_NAME = "berries";
 
+
     private String[] allColumns = {"_id","name","lat_name","c1","c2","c3","features","poisonous","poisonous_extra,pic,pic_s"};
 
 
@@ -160,6 +161,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //return arrayList now filled with database notes or notes in our database
         return berries;
+    }
+
+    //TODO Where statement
+    public ArrayList<Berry> getGuidedBerries(){
+        ArrayList<Berry> berries = new ArrayList<Berry>();
+        String colour = BerryGuide.getColourguide();
+        String where = "c1 = '"+colour+"' OR c2 = '"+colour+ "' OR c3 = '"+ colour+"'";
+        Cursor cursor = myDataBase.query(TABLE_NAME, allColumns,where, null, null, null, "name DESC");
+
+
+
+        for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()) {
+            Berry berry = cursorToBerry(cursor);
+            berries.add(berry);
+        }
+
+        //close our cursor required
+        cursor.close();
+
+        //return arrayList now filled with database notes or notes in our database
+        return berries;
+
     }
 
 

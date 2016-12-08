@@ -27,7 +27,8 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.afemsc.beeren.MainActivity" />
 
-        <activity android:name=".BerryDetailActivity"
+        <activity
+            android:name=".BerryDetailActivity"
             android:parentActivityName=".BerryDirectory">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -42,9 +43,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.afemsc.beeren.MainActivity" />
         </activity>
-        <activity android:name=".BerryGuide"
-            android:parentActivityName=".MainActivity">
-        </activity>
+        <activity
+            android:name=".BerryGuide"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".BerryGuideResult"></activity>
     </application>
 
 </manifest>
