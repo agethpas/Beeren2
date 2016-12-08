@@ -38,15 +38,26 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
 
     //criteria
     static String  colourguide;
+    static int season;
+
+
 
     //Getter
     public static String getColourguide() {
         return colourguide;
     }
 
+    public static int getSeason() {
+        return season;
+    }
+
     //Setter
     public static void setColourguide(String colourguide) {
         BerryGuide.colourguide = colourguide;
+    }
+
+    public static void setSeason(int season) {
+        BerryGuide.season = season;
     }
 
     //DatePicker
@@ -107,7 +118,7 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
             }
         });
 
-        //colour round picker
+        //colour picker imageview for bubble
         final ImageView imageviewpickedcolour = (ImageView) findViewById(R.id.circle_colour_pick);
 
         //spinner
@@ -152,10 +163,6 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         });
 
 
-
-
-
-
         //Date Picker
         buttonberryGuideDatepick.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -166,8 +173,7 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
             }
         });
 
-        // TODO Farben richitg übernehmen
-        // runde Punkte einfügen je nach dem was gewählt wurde.
+
         // colour picker
         buttonberryGuideColourpick.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -183,37 +189,25 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c1);
                             setColourguide("r");
                         } else if (position == 1){
-                            imageviewpickedcolour.setImageResource(R.drawable.circle_c5);
-                        }else if (position == 2){
-                            imageviewpickedcolour.setImageResource(R.drawable.circle_c4);
-                            setColourguide("y");
-                        }else if (position == 3){
-                            imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
-                        }else if (position == 4){
-                            imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
-                            setColourguide("b");
-                        }else if (position == 5){
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c2);
-                        }else if (position == 6){
-                            imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
-                        }else if (position == 7) {
+                            setColourguide("b");
+                        }else if (position == 2){
                             imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
                             setColourguide("bl");
+                        }else if (position == 3){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c4);
+                            setColourguide("y");
+                        }else if (position == 4){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c5);
+                            setColourguide("br");
+                        }else if (position == 5){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c6);
+                            setColourguide("g");
+                        }else if (position == 6){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c7);
+                            setColourguide("w");
                         }
-
-
                     }
-
-
-
-
-
-
-
-
-
-
-
 
                     @Override
                     public void onCancel() {
@@ -223,8 +217,6 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
             }
 
         });
-
-
 
     }
 
@@ -251,6 +243,17 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         dayFinal = i2;
 
         buttonberryGuideDatepick.setText(dayFinal+"."+monthFinal+"."+yearFinal);
+        if(monthFinal>=4 && monthFinal<=6){
+            setSeason(1);
+        } else if(monthFinal>=6  && monthFinal <=8){
+            setSeason(2);
+        }else if (monthFinal>=8 && monthFinal <=9){
+            setSeason(3);
+        }else if (monthFinal>=10 && monthFinal <=3){
+            setSeason(4);
+        }
+
+
 
     }
 

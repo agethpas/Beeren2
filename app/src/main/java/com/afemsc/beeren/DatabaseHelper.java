@@ -21,13 +21,13 @@ import java.util.ArrayList;
 public class DatabaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
     private static String DB_PATH = "/data/data/com.afemsc.beeren/databases/";
-    private static String DB_NAME = "berryDB_x.db";
+    private static String DB_NAME = "berryDB_xpp.db";
     private SQLiteDatabase myDataBase;
     private final Context myContext;
     public static final String TABLE_NAME = "berries";
 
 
-    private String[] allColumns = {"_id","name","lat_name","c1","c2","c3","features","poisonous","poisonous_extra,pic,pic_s"};
+    private String[] allColumns = {"_id","name","lat_name","c1","c2","c3","features","poisonous","form,pic,pic_s,size_min,size_max,vegetation,spring,summer,autumn,winter"};
 
 
     /**
@@ -163,11 +163,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return berries;
     }
 
-    //TODO Where statement
+    //TODO Where statement ist noch incomplete
     public ArrayList<Berry> getGuidedBerries(){
         ArrayList<Berry> berries = new ArrayList<Berry>();
         String colour = BerryGuide.getColourguide();
-        String where = "c1 = '"+colour+"' OR c2 = '"+colour+ "' OR c3 = '"+ colour+"'";
+        int season = BerryGuide.getSeason();
+        String where = "(c1 = '"+colour+"' OR c2 = '"+colour+ "' OR c3 = '"+ colour+"') AND (spring = "+season+
+                " OR summer = "+season+" OR autumn = "+season+ " OR winter = "+ season+" )";
         Cursor cursor = myDataBase.query(TABLE_NAME, allColumns,where, null, null, null, "name DESC");
 
 
@@ -191,7 +193,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private Berry cursorToBerry(Cursor cursor){
         Berry newBerry = new Berry ( cursor.getInt(0),cursor.getString(1),
                 cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),
-                cursor.getString(7),cursor.getString(8),cursor.getString(9), cursor.getString(10));
+                cursor.getString(7),cursor.getInt(8),cursor.getString(9), cursor.getString(10), cursor.getDouble(11),cursor.getDouble(12),
+                cursor.getString(13),cursor.getInt(14),cursor.getInt(15),cursor.getInt(16),cursor.getInt(17));
 
 
         return newBerry;
