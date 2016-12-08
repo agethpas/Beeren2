@@ -27,18 +27,24 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.afemsc.beeren.MainActivity" />
 
-        <activity android:name=".BerryDetailActivity">
-            android:parentActivityName=".MainActivity">
+        <activity android:name=".BerryDetailActivity"
+            android:parentActivityName=".BerryDirectory">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.afemsc.beeren.BerryDirectory" />
         </activity>
         <activity
             android:name=".BerryFullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_berry_fullscreen"
-            android:theme="@style/FullscreenTheme"></activity>
-        <activity android:name=".BerryGuide"></activity>
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/FullscreenTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.afemsc.beeren.MainActivity" />
+        </activity>
+        <activity android:name=".BerryGuide"
+            android:parentActivityName=".MainActivity">
+        </activity>
     </application>
 
 </manifest>

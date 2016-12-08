@@ -9,10 +9,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import petrov.kristiyan.colorpicker.ColorPicker;
 
@@ -23,6 +26,10 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     Button buttonberryGuideColourpick;
     SeekBar seekbarberry;
     TextView textberrysize;
+
+    //Database storage
+    private ArrayList<Berry> berries;
+    private BerryAdapter berryAdapter;
 
     //DatePicker
     int day, month, year , displaymonth;
@@ -37,6 +44,9 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //sets back button -> view manifest for more info
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_berry_guide);
 
@@ -49,6 +59,9 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         //button finder
         buttonberryGuideDatepick = (Button) findViewById(R.id.button_guide_datepicker);
         buttonberryGuideColourpick  = (Button) findViewById(R.id.button_guide_colourpicker);
+
+        //colour round picker
+        final ImageView imageviewpickedcolour = (ImageView) findViewById(R.id.circle_colour_pick);
 
         //spinner
         Spinner spin = (Spinner) findViewById(R.id.simpleSpinner);
@@ -104,7 +117,8 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
             }
         });
 
-        // für gewählte Farben gleich vorgehen wie bei der Detail ansicht die runden Punkte einfügen je nach dem was gewählt wurde.
+        // TODO Farben richitg übernehmen
+        // runde Punkte einfügen je nach dem was gewählt wurde.
         // colour picker
         buttonberryGuideColourpick.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -114,8 +128,38 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
                 colorPicker.setDefaultColorButton(Color.parseColor("#0000FF")).setColumns(5).setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
                     @Override
                     public void onChooseColor(int position, int color) {
-                        Log.d("position",""+position);// will be fired only when OK button was tapped
+                        Log.d("position",""+position);// When ok is pressed
+
+                        if (position == 0){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c1);
+                        } else if (position == 1){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c5);
+                        }else if (position == 2){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c4);
+                        }else if (position == 3){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
+                        }else if (position == 4){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
+                        }else if (position == 5){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c2);
+                        }else if (position == 6){
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
+                        }else if (position == 7) {
+                            imageviewpickedcolour.setImageResource(R.drawable.circle_c3);
+                        }
+
                     }
+
+
+
+
+
+
+
+
+
+
+
 
                     @Override
                     public void onCancel() {
