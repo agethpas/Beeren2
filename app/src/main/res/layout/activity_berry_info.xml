@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_berry_info"
     android:layout_width="match_parent"
@@ -11,25 +12,12 @@
     tools:context="com.afemsc.beeren.BerryInfo">
 
     <TextView
-        android:text="@string/info2"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="80sp"
-        android:textColor="@color/colorAccent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:id="@+id/textView3"
-        android:textStyle="normal|bold"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
         android:text="@string/info1"
         android:textSize="24sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
-        android:id="@+id/textView2"
+        android:id="@+id/info1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -38,7 +26,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
+        android:id="@+id/info3"
+        android:layout_below="@+id/info2"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/info2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="150sp"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/info2"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/info1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/infoZHAW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:id="@+id/infoZHAW"
+        android:layout_below="@+id/info3"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo_zhaw"
+        android:layout_toStartOf="@+id/info3"
+        android:id="@+id/imageView2"
+        android:layout_below="@+id/infoZHAW"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="20dp" />
 </RelativeLayout>

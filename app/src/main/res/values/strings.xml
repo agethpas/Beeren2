@@ -16,9 +16,10 @@
 
     <string name="title_activity_berry_fullscreen">BerryFullscreenActivity</string>
 
-    <string name="info1">In case of poisoning: </string>
+    <string name="info1">In case of poisoning press to call: </string>
     <string name="info2">145</string>
     <string name="info3">24h emergency line</string>
+    <string name="infoZHAW">Developed at Zurich University of Applied Sciences </string>
 
 
 </resources>
