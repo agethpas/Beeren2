@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button buttonberryDir;
     Button buttonberryGuide;
+    Button buttonberryInfo;
 
 
     @Override
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "AR feature and capture pictures", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -51,7 +52,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //
-                Intent i = new Intent(getApplicationContext(),BerryGuide.class);                // class auf guide ändern
+                Intent i = new Intent(getApplicationContext(),BerryGuide.class);
+                startActivity(i);
+            }
+        });
+
+        buttonberryInfo=(Button)findViewById(R.id.button_info);
+        buttonberryInfo.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //
+                Intent i = new Intent(getApplicationContext(),BerryInfo.class);
                 startActivity(i);
             }
         });

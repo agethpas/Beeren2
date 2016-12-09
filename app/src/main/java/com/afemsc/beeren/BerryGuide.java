@@ -35,12 +35,12 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
 
 
 
-
     //criteria
     static String  colourguide;
     static int season;
     static double size;
     static int form;
+    static int vegetation_critera;
 
 
 
@@ -62,6 +62,10 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         return form;
     }
 
+    public static int getVegetation_critera() {
+        return vegetation_critera;
+    }
+
     //Setter
     public static void setColourguide(String colourguide) {
         BerryGuide.colourguide = colourguide;
@@ -79,6 +83,9 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         BerryGuide.form = form;
     }
 
+    public static void setVegetation_critera(int vegetation_critera) {
+        BerryGuide.vegetation_critera = vegetation_critera;
+    }
 
     //DatePicker
     int day, month, year , displaymonth;
@@ -88,7 +95,9 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     String[] formNames={"Round","Egg","Oval","Heart","Small Round"};
     int forms[] = {R.drawable.form_1_rund, R.drawable.form_2_elipse, R.drawable.form_3_elipse2, R.drawable.form_4_herz, R.drawable.form_5_runde};
 
-
+    //Vegetation
+    String[] vegetation={"Bush","Tree","Plant"};
+    int vegetation_icons[] = {R.drawable.bush, R.drawable.tree, R.drawable.plant};
 
 
     @Override
@@ -126,7 +135,7 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         buttonberryGuideColourpick  = (Button) findViewById(R.id.button_guide_colourpicker);
         buttonGuideResult = (Button) findViewById(R.id.button_guide_result);
 
-        //Result
+        //Result Button and go to result activity
 
         buttonGuideResult.setOnClickListener(new View.OnClickListener() {
 
@@ -141,11 +150,18 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         //colour picker imageview for bubble
         final ImageView imageviewpickedcolour = (ImageView) findViewById(R.id.circle_colour_pick);
 
-        //spinner
+        //spinner form
         Spinner spin = (Spinner) findViewById(R.id.simpleSpinner);
         spin.setOnItemSelectedListener(this);
         CustomAdapter customAdapter=new CustomAdapter(getApplicationContext(),forms,formNames);
         spin.setAdapter(customAdapter);
+
+        //spinner vegetation
+        Spinner veg = (Spinner) findViewById(R.id.spinner_vegetation);
+        veg.setOnItemSelectedListener(onItemSelectedListenerVeg);
+        CustomAdapter ca = new CustomAdapter(getApplicationContext(),vegetation_icons, vegetation);
+        veg.setAdapter(ca);
+
 
         //current date
         Calendar c = Calendar.getInstance();
@@ -245,19 +261,48 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     }
 
 
+    // OnItemSelect for Vegetation
 
-    //Spinner action onItemSelected
+    AdapterView.OnItemSelectedListener onItemSelectedListenerVeg = new AdapterView.OnItemSelectedListener(){
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view,
+                                   int position, long id) {
+            setVegetation_critera(position + 1);
+
+        }
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {}
+
+    };
+
+
+
+
+
     @Override
-    public void onItemSelected(AdapterView<?> arg0, View arg1, int position,long id) {
-       setForm(position+1);
-         //Toast.makeText(getApplicationContext(), position, Toast.LENGTH_LONG).show();
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        switch(adapterView.getId()){
+            case R.id.simpleSpinner:
+                setForm(i + 1);
+
+                break;
+            case R.id.spinner_vegetation:
+                setVegetation_critera(i + 1);
+
+                break;
+        }
     }
+
+
 
     //Spinner action onNothingSelected
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
     }
+
+
+
 
 
     // Datepicker user input

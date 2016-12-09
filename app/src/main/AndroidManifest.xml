@@ -37,7 +37,7 @@
         <activity
             android:name=".BerryFullscreenActivity"
             android:label="@string/title_activity_berry_fullscreen"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".BerryDirectory"
             android:theme="@style/FullscreenTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -45,8 +45,17 @@
         </activity>
         <activity
             android:name=".BerryGuide"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".BerryGuideResult"></activity>
+            android:parentActivityName=".MainActivity">
+
+        </activity>
+        <activity
+            android:name=".BerryGuideResult"
+            android:parentActivityName=".BerryGuide">
+        </activity>
+        <activity android:name=".BerryInfo"
+            android:parentActivityName=".MainActivity">
+        </activity>>
+
     </application>
 
 </manifest>

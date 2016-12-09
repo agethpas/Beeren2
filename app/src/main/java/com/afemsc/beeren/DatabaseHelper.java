@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 public class DatabaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
     private static String DB_PATH = "/data/data/com.afemsc.beeren/databases/";
-    private static String DB_NAME = "berryDB_xpp.db";
+    private static String DB_NAME = "berryDB_z.db";
     private SQLiteDatabase myDataBase;
     private final Context myContext;
     public static final String TABLE_NAME = "berries";
@@ -163,16 +164,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return berries;
     }
 
-    //TODO Where statement ist noch incomplete
+
     public ArrayList<Berry> getGuidedBerries(){
         ArrayList<Berry> berries = new ArrayList<Berry>();
         String colour = BerryGuide.getColourguide();
         int season = BerryGuide.getSeason();
         double size = BerryGuide.getSize();
         int form = BerryGuide.getForm();
+        int vegetation = BerryGuide.getVegetation_critera();
         String where = "(c1 = '"+colour+"' OR c2 = '"+colour+ "' OR c3 = '"+ colour+"') AND (spring = "+season+
                 " OR summer = "+season+" OR autumn = "+season+ " OR winter = "+ season+" ) AND (size_min <= "+size+
-                " AND size_max>= "+size +") AND ( form = "+form+" )";
+                " AND size_max>= "+size +") AND ( form = "+form+" ) AND ( vegetation = "+vegetation+ " )";
         Cursor cursor = myDataBase.query(TABLE_NAME, allColumns,where, null, null, null, "name DESC");
 
 
