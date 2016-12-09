@@ -40,6 +40,7 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     static String  colourguide;
     static int season;
     static double size;
+    static int form;
 
 
 
@@ -57,7 +58,9 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         return size;
     }
 
-
+    public static int getForm() {
+        return form;
+    }
 
     //Setter
     public static void setColourguide(String colourguide) {
@@ -72,6 +75,9 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
         BerryGuide.size = size;
     }
 
+    public static void setForm(int form) {
+        BerryGuide.form = form;
+    }
 
 
     //DatePicker
@@ -164,7 +170,7 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
                 textberrysize.setText("Grösse: "+ BerrySize+" cm");
 
                 //TODO this size
-                setSeason((Math.round(progress*10d)/10));
+                 setSize(Math.round((progress*10d)/10));
 
 
             }
@@ -243,7 +249,8 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     //Spinner action onItemSelected
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position,long id) {
-       // Toast.makeText(getApplicationContext(), formNames[position], Toast.LENGTH_LONG).show();
+       setForm(position+1);
+         //Toast.makeText(getApplicationContext(), position, Toast.LENGTH_LONG).show();
     }
 
     //Spinner action onNothingSelected
@@ -253,7 +260,7 @@ public class BerryGuide extends AppCompatActivity implements DatePickerDialog.On
     }
 
 
-    // Date Set user input
+    // Datepicker user input
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
         yearFinal = i;

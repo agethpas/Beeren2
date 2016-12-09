@@ -168,8 +168,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Berry> berries = new ArrayList<Berry>();
         String colour = BerryGuide.getColourguide();
         int season = BerryGuide.getSeason();
+        double size = BerryGuide.getSize();
+        int form = BerryGuide.getForm();
         String where = "(c1 = '"+colour+"' OR c2 = '"+colour+ "' OR c3 = '"+ colour+"') AND (spring = "+season+
-                " OR summer = "+season+" OR autumn = "+season+ " OR winter = "+ season+" )";
+                " OR summer = "+season+" OR autumn = "+season+ " OR winter = "+ season+" ) AND (size_min <= "+size+
+                " AND size_max>= "+size +") AND ( form = "+form+" )";
         Cursor cursor = myDataBase.query(TABLE_NAME, allColumns,where, null, null, null, "name DESC");
 
 
@@ -195,8 +198,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),
                 cursor.getString(7),cursor.getInt(8),cursor.getString(9), cursor.getString(10), cursor.getDouble(11),cursor.getDouble(12),
                 cursor.getString(13),cursor.getInt(14),cursor.getInt(15),cursor.getInt(16),cursor.getInt(17));
-
-
         return newBerry;
     }
 
