@@ -48,8 +48,6 @@ public class BerryGuideResult extends AppCompatActivity {
         setContentView(R.layout.activity_berry_guide_result);
 
 
-
-
         DatabaseHelper helper = new DatabaseHelper(this);
         try {
             helper.createDataBase();
@@ -72,8 +70,6 @@ public class BerryGuideResult extends AppCompatActivity {
         listv.setAdapter(berryAdapter);
 
 
-
-
         listv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -93,22 +89,6 @@ public class BerryGuideResult extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

@@ -131,7 +131,4 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
 
     }
 
-
-
-
 }

@@ -131,13 +131,6 @@ public class BerryDetailActivity extends AppCompatActivity {
 
 
 
-
-
-
-
     }
-
-
-
 
 }

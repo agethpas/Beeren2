@@ -37,7 +37,4 @@ public class BerryFullscreenActivity extends AppCompatActivity {
 
     }
 
-
-
-
 }
