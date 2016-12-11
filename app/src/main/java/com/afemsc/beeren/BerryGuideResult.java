@@ -14,6 +14,11 @@ import java.util.ArrayList;
 import static com.afemsc.beeren.R.id.ListBerry;
 import static com.afemsc.beeren.R.id.ListBerryGuideResult;
 
+/**
+ * Created by Pascal on 06.10.2016.
+ */
+
+
 public class BerryGuideResult extends AppCompatActivity {
 
 

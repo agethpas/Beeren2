@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * Created by Pascal on 06.10.2016.
+ */
+
+
 public class BerryInfo extends AppCompatActivity {
 
 

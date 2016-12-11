@@ -1,7 +1,7 @@
 package com.afemsc.beeren;
 
 /**
- * Created by aget on 07.12.2016.
+ * Created by Pascal on 07.12.2016.
  */
 
         import android.content.Context;

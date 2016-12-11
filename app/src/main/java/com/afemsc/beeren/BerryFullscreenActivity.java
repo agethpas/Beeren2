@@ -1,7 +1,6 @@
 package com.afemsc.beeren;
 
 
-import android.content.Intent;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,9 +10,9 @@ import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
 /**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
+ * Created by Pascal on 06.10.2016.
  */
+
 public class BerryFullscreenActivity extends AppCompatActivity {
 
     SubsamplingScaleImageView pic_l;

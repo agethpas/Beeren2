@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 /**
- * Created by aget on 06.10.2016.
+ * Created by Pascal on 06.10.2016.
  */
 
 public class BerryAdapter extends ArrayAdapter<Berry>{
@@ -121,16 +121,6 @@ public class BerryAdapter extends ArrayAdapter<Berry>{
                 viewHolder.v = viewHolder.c3;
             }
         }
-
-
-            //viewHolder.pic.setImageResource(Integer.parseInt(String.valueOf(berry.getPic_s())));
-
-
-
-/*
-        int resId = getResources().getIdentifier(berry.getPic_s() ,"drawable", getPackageName());
-        viewHolder.pic.setImageResource(resId);
-*/
 
         int resId = getContext().getResources().getIdentifier(berry.getPic_s() ,"drawable", "com.afemsc.beeren");
         viewHolder.pic.setImageResource(resId);

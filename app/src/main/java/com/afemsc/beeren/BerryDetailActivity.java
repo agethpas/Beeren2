@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * Created by Pascal on 06.10.2016.
+ */
+
 
 public class BerryDetailActivity extends AppCompatActivity {
 
@@ -72,22 +76,31 @@ public class BerryDetailActivity extends AppCompatActivity {
 
         for (int i = 0; i < 3; i++) {
 
-            if (s.equals("r")) {
-                v.setImageResource(R.drawable.circle_c1);
-            } else if (s.equals("b")) {
-                v.setImageResource(R.drawable.circle_c2);
-            } else if (s.equals("bl")) {
-                v.setImageResource(R.drawable.circle_c3);
-            } else if (s.equals("y")) {
-                v.setImageResource(R.drawable.circle_c4);
-            } else if (s.equals("br")) {
-                v.setImageResource(R.drawable.circle_c5);
-            } else if (s.equals("g")) {
-                v.setImageResource(R.drawable.circle_c6);
-            } else if (s.equals("w")) {
-                v.setImageResource(R.drawable.circle_c7);
-            } else {
-                v.setImageResource(R.drawable.circle_c8);
+            switch (s) {
+                case "r":
+                    v.setImageResource(R.drawable.circle_c1);
+                    break;
+                case "b":
+                    v.setImageResource(R.drawable.circle_c2);
+                    break;
+                case "bl":
+                    v.setImageResource(R.drawable.circle_c3);
+                    break;
+                case "y":
+                    v.setImageResource(R.drawable.circle_c4);
+                    break;
+                case "br":
+                    v.setImageResource(R.drawable.circle_c5);
+                    break;
+                case "g":
+                    v.setImageResource(R.drawable.circle_c6);
+                    break;
+                case "w":
+                    v.setImageResource(R.drawable.circle_c7);
+                    break;
+                default:
+                    v.setImageResource(R.drawable.circle_c8);
+                    break;
             }
 
             //sets ImageView for second loop

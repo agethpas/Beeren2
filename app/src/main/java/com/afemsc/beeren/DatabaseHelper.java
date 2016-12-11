@@ -16,7 +16,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 /**
- * Created by aget on 06.10.2016.
+ * Created by Pascal on 06.10.2016.
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private String[] allColumns = {"_id","name","lat_name","c1","c2","c3","features","poisonous","form,pic,pic_s,size_min,size_max,vegetation,spring,summer,autumn,winter"};
 
 
-    /**
+    /*
      * Constructor
      * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
      * @param context
@@ -42,9 +42,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.myContext = context;
     }
 
-    /**
-     * Creates a empty database on the system and rewrites it with your own database.
-     * */
+    /*
+     Creates a empty database on the system and rewrites it with your own database.
+     */
     public void createDataBase() throws IOException{
 
         boolean dbExist = checkDataBase();
@@ -63,9 +63,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /**
-     * Check if the database already exist to avoid re-copying the file each time you open the application.
-     * @return true if it exists, false if it doesn't
+    /*
+      Check if the database already exist to avoid re-copying the file each time you open the application.
+      @return true if it exists, false if it doesn't
      */
     private boolean checkDataBase(){
 
@@ -86,11 +86,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return checkDB != null ? true : false;
     }
 
-    /**
-     * Copies your database from your local assets-folder to the just created empty database in the
-     * system folder, from where it can be accessed and handled.
-     * This is done by transfering bytestream.
-     * */
+
+      //Copies database from your local assets-folder to empty database
+
     private void copyDataBase() throws IOException{
 
         //Open your local db as the input stream
@@ -140,10 +138,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
-    // Add your public helper methods to access and get content from the database.
-    // You could return cursors by doing "return myDataBase.query(....)" so it'd be easy
-    // to you to create adapters for your views.
-
 
     public ArrayList<Berry> getAllBerries(){
         ArrayList<Berry> berries = new ArrayList<Berry>();
@@ -160,7 +154,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //close our cursor required
             cursor.close();
 
-        //return arrayList now filled with database notes or notes in our database
+        //return arrayList filled with database berries
         return berries;
     }
 
@@ -187,7 +181,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //close our cursor required
         cursor.close();
 
-        //return arrayList now filled with database notes or notes in our database
+
         return berries;
 
     }
